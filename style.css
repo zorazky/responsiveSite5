@@ -1,0 +1,79 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+ }
+
+ .portfolio {
+     color: white;
+     background: radial-gradient(rgba(43,55,96,1), rgba(11,16,35,1));
+ }
+
+ nav {
+     color:white;
+     min-height: 10vh;
+     width:90%;
+     margin: auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 20px 0px;
+     
+ }
+
+ nav img {
+     height:40px;
+     width:40px;
+ }
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.page {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+}
+
+.hero {
+    overflow: hidden;
+    height: 500px;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+}
+
+.hero img {
+    height:500px;
+    transition: transform 0.3s ease-out;
+    cursor: pointer;
+}
+
+.model-right {
+    transform: translate(0%, 10%);
+}
+
+.model-left {
+    transform: translate(0%, -10%);
+}
+
+.hero:hover .model-right {
+    transform: translate(0%,0%);
+}
+
+.hero:hover .model-left {
+    transform: translate(0%,0%);
+}
+
+.details {
+    grid-column: 2/3;
+    align-self: end;
+}
