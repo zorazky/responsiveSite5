@@ -43,11 +43,24 @@
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
 }
 
+.chef, .hairstyle {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .hero {
     overflow: hidden;
     height: 500px;
     align-self: center;
     justify-self: center;
+    display: flex;
+}
+
+.hero a {
     display: flex;
 }
 
@@ -220,6 +233,8 @@
         align-items:center;
     }
 
+   
+
     .hero {
         grid-column: 2/3;
         height: auto;
@@ -278,3 +293,51 @@
         font-size: 28px;
     }
 }
+
+.nav-open {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 50vh;
+    background: white;
+    z-index: 1;
+    color: black;
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 5%;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    transform: translateY(-100%);
+}
+
+.social-links {
+    width: 300px;
+    height: 50px;
+    background-color:grey;
+}
+
+.contact {
+    grid-column: 2/3;
+}
+
+.nav-open h3 {
+    font-size: 28px;
+    padding-bottom: 40px;
+}
+
+.nav-open p{
+    font-size: 18px;
+}
+
+.logo,
+.menu {
+    z-index: 2;
+}
+
+.menu {
+    cursor: pointer;
+}
+
+
+
