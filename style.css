@@ -12,6 +12,7 @@
  }
 
  .portfolio {
+     overflow: hidden;
      color: white;
      background: radial-gradient(rgba(43,55,96,1), rgba(11,16,35,1));
  }
