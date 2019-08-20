@@ -16,6 +16,10 @@ function init() {
         slide.addEventListener('click', function() {
             changeDots(this);
             nextSlide(index);
+            scrollSlide = index;
+
+            console.log(current)
+            console.log(index)
         })
     })
 
@@ -39,7 +43,18 @@ function init() {
         const nextText = nextPage.querySelector('.details');
         const portfolio = document.querySelector('.portfolio');
 
-        const tl = new TimelineMax();
+        const tl = new TimelineMax({
+            onStart: function() {
+                slides.forEach(slide => {
+                    slide.getElementsByClassName.pointerEvents = 'none';
+                })
+            },
+            onComplete: function() {
+                slides.forEach(slide => {
+                    slide.getElementsByClassName.pointerEvents = 'all';
+                })
+            }
+        });
 
         tl.fromTo(currentLeft, 0.4, {y: '-10%'}, {y:'-100%'})
         .fromTo(currentRight, 0.4, {y: '10%'}, {y: '-100%'}, '-=0.2')
@@ -56,11 +71,32 @@ function init() {
     }
 
     document.addEventListener("wheel", throttle(scrollChange, 1500));
+    document.addEventListener("touchmove", throttle(scrollChange, 1500));
+
+    function switchDots(dotNumber) {
+        const activeDot = document.querySelectorAll('.slide')[dotNumber];
+        slides.forEach(slide => {
+            slide.classList.remove("active");
+        })
+        activeDot.classList.add("active");
+         
+    }
 
     function scrollChange(e) {
-        if(e.deltaY > 0) {
-            
+        if (e.deltaY > 0) {
+            scrollSlide += 1;
+        } else {
+            scrollSlide -= 1;
+        } 
+
+        if (scrollSlide > 2) {
+            scrollSlide = 0;
         }
+        if (scrollSlide < 0) {
+            scrollSlide = 2;
+        }
+        switchDots(scrollSlide);
+        nextSlide(scrollSlide);
     }
 
 
